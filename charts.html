@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="./jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <link rel="stylesheet" href="./styles.css" type="text/css" />
+  <title>Chart Test</title>
+</head>
+<body>
+  <h1>Chart stuff</h1>
+  <div class="grid-container">
+    <div class="currentSpeed current">
+      <div>Current speed</div>
+      <p><b id="currentSpeed"></b> km/h</p>
+    </div>
+    <div class="currentEngineTemp current">
+        <div>Current engine temperature</div>
+        <p><b id="currentEngineTemp"></b> °C</p>
+      </div>
+    <div class="currentShockAbsorbers">
+      <div>Current shock absorbers</div>
+      <canvas id="currentShockAbsorbers"></canvas>
+    </div>
+    <div class="currentWheelTemps">
+      <div>Current wheel temperatures</div>
+      <canvas id="currentWheelTemps"></canvas>
+    </div>
+    <div class="steeringWheel">
+      <div>Steering wheel</div>
+      <img src="imgs/steeringwheel.png" id="steeringWheel">
+    </div>
+    <div class="shockAbsorbers">
+      <div>Shock absorbers</div>
+      <canvas id="shockAbsorbers"></canvas>
+    </div>
+    <div class="engineTemp">
+      <div>Engine temperature</div>
+      <canvas id="engineTemp"></canvas>
+    </div>
+    <div class="wheelTemps">
+      <div>Wheel temperatures</div>
+      <canvas id="wheelTemps"></canvas>
+    </div>
+  </div>
+  <script type="text/javascript" src="./app.js"></script>
+</body>
+</html>

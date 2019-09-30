@@ -263,8 +263,14 @@
   }
 
   function addData(config, chart, label, data) {
+    if (config.data.labels.length >= 10) {
+      config.data.labels.shift();
+    }
     config.data.labels.push(label);
     for (let i = 0; i < config.data.datasets.length; ++i) {
+      if (config.data.datasets[i].data.length >= 10) {
+        config.data.datasets[i].data.shift();
+      }
       config.data.datasets[i].data.push(data[i]);
     };
     chart.update();
@@ -272,7 +278,7 @@
 
   function ranomize() {
     $.ajax({
-      'url': 'http://kristofer.is/rutel/dumydata.php',
+      'url': '127.0.0.1/dumydata.php',
       'type': 'GET',
       'dataType': 'json',
       'success': function(response) {
@@ -285,10 +291,10 @@
         const shockAbsorber4 = response.shock4;
         setData(currentShockAbsorbersConfig, currentShockAbsorbersChart, [shockAbsorber1, shockAbsorber2, shockAbsorber3, shockAbsorber4]);
         addData(shockAbsorbersConfig, shockAbsorbersChart, getTime(), [shockAbsorber1, shockAbsorber2, shockAbsorber3, shockAbsorber4]);
-        const wheelTemp1 = tiretemp1;
-        const wheelTemp2 = tiretemp2;
-        const wheelTemp3 = tiretemp3;
-        const wheelTemp4 = tiretemp4;
+        const wheelTemp1 = response.tiretemp1;
+        const wheelTemp2 = response.tiretemp2;
+        const wheelTemp3 = response.tiretemp3;
+        const wheelTemp4 = response.tiretemp4;
         setData(currentWheelTempsConfig, currentWheelTempsChart, [wheelTemp1, wheelTemp2, wheelTemp3, wheelTemp4]);
         addData(wheelTempsConfig, wheelTempsChart, getTime(), [wheelTemp1, wheelTemp2, wheelTemp3, wheelTemp4]);
         document.getElementById("currentSpeed").innerHTML = Math.floor(Math.random() * 101);

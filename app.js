@@ -278,7 +278,7 @@
 
   function ranomize() {
     $.ajax({
-      'url': '127.0.0.1/dumydata.php',
+      'url': 'dumydata.php',
       'type': 'GET',
       'dataType': 'json',
       'success': function(response) {
